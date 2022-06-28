@@ -1,5 +1,4 @@
 let title;
-console.log(jsonFromServer);
 let date;
 let description;
 let catergory;
@@ -40,15 +39,15 @@ function inputToObject() {
     createdAt: new Date().getTime(),
     catergory: "to-do",
   };
-  console.log(task, counter);
+  //   console.log(task, counter);
 
   backend.setItem(`task${counter}`, task);
   console.log(backend.getItem(`task${counter}`));
   counter++;
-  backend.deleteItem("counter");
+  // backend.deleteItem("counter");
   backend.setItem("counter", counter);
   resetFor();
-  console.log("ende");
+  console.log("ende", jsonFromServer);
 }
 
 // function reset() {
@@ -66,7 +65,6 @@ async function init() {
   await downloadFromServer();
   document.querySelector("form").addEventListener("submit", (ev) => {
     ev.preventDefault();
-    // inputToObject();
-    window.location.href = "./index.html";
+    setTimeout(() => (window.location.href = "./index.html"), 500);
   });
 }
