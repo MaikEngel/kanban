@@ -1,21 +1,21 @@
 function addBacklog() {
     let backlog = document.getElementById('backlogItem')
     backlog.innerHTML = ``;
-    for (let i = 0; i < 8; i++) {
+    for (let i = 0; i < tasks.length; i++) {
+        let task=tasks[i]
         backlog.innerHTML += `
         <div id="backlogContainer${i}" class="backlogContainer urgencyColorRed">
                 <div class="assignedTo" class="category">
-                    <img src="img/guy.jpg" alt="" class="backlogAssignedToPicture" />
+                    <img src=${task["selectetAvatar"]["picture"]} alt="" class="backlogAssignedToPicture" />
                     <div>
-                        <p class="margin0">Vorname, Nachname</p>
-                        <p class="fontColor margin0">Email</p>
+                        <p class="margin0">${task["selectetAvatar"]["name"]}</p>
+                        <p class="fontColor margin0">${task["selectetAvatar"]["email"]}</p>
                     </div>
-                </div>
-                <p class="category">Marketing</p>
+                </div>${task["catergory"]}</p>
                 <div class="detailsContainer">
                     <h3 class="fontColor detailsHeadlineResponsiv">DETAILS</h3>
                     <p class="details">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        ${task['description']}.
                     </p>
                 </div>
             </div>
@@ -23,3 +23,14 @@ function addBacklog() {
         `;
     }
 }
+// if (condition) {
+//     if (tasks['selectedAvatar']['urgency'] == "High") {
+//         var(--urgency-color) = red;
+//     }
+// } else {
+//     (tasks['selectedAvatar']['urgency'] == "medium") {
+//         var(--urgency-color) = orange;
+// } else {
+//     (tasks['selectedAvatar']['urgency'] == "low") {
+//         var(--urgency-color) = blue;
+// }

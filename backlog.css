@@ -1,3 +1,7 @@
+:root {
+  --urgency-color: red;
+}
+
 .dNone {
   display: none;
 }
@@ -76,7 +80,7 @@ table {
 }
 
 .urgencyColorRed {
-    border-left: solid red 12px;
+    border-left: solid var(--urgency-color) 12px;
 }
 
 .assignedTo {
