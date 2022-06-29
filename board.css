@@ -97,12 +97,15 @@ body {
   .column {
     height: 40%;
     width: 40%;
+    min-width: 100px;
+    min-height: 100px;
   }
   .columns-container {
   }
   .column:hover {
     flex-grow: 1;
-    height: 50%;
+    height: 70%;
+    width: 70%;
   }
   .column {
     flex-grow: 1;

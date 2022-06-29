@@ -10,6 +10,8 @@ let allInputElements = Array.from(document.querySelectorAll("[type]"))
   .concat(Array.from(document.querySelectorAll("textarea")))
   .concat(Array.from(document.querySelectorAll("select")));
 resetFor();
+
+let allTasks;
 function getCounter() {
   if (
     backend.getItem("counter") === null ||
@@ -39,15 +41,21 @@ function inputToObject() {
     createdAt: new Date().getTime(),
     catergory: "to-do",
   };
-  //   console.log(task, counter);
-
-  backend.setItem(`task${counter}`, task);
+  console.log(allTasks, counter);
+  allTasks.push(task);
+  backend.setItem(`allTasks`, allTasks).then(() => {
+    counter++;
+    console.log(counter);
+    backend.setItem("counter", counter).then(() => {
+      window.location.href = "./index.html";
+      console.log(backend.getItem(counter));
+    });
+  });
   console.log(backend.getItem(`task${counter}`));
-  counter++;
-  // backend.deleteItem("counter");
-  backend.setItem("counter", counter);
+  //   counter++;
+  //   // backend.deleteItem("counter");
+  //   backend.setItem("counter", counter);
   resetFor();
-  console.log("ende", jsonFromServer);
 }
 
 // function reset() {
@@ -63,8 +71,11 @@ function resetFor() {
 }
 async function init() {
   await downloadFromServer();
+  counter = backend.getItem("counter") || 1;
+  allTasks = backend.getItem("allTasks") || [];
   document.querySelector("form").addEventListener("submit", (ev) => {
     ev.preventDefault();
-    setTimeout(() => (window.location.href = "./index.html"), 500);
+    inputToObject();
+    // setTimeout(() => (window.location.href = "./index.html"), 500);
   });
 }
