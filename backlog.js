@@ -19,8 +19,9 @@ function addBacklog() {
                 <p class="category">${task["category"]}</p>
                 <div class="detailsContainer">
                     <h3 class="fontColor detailsHeadlineResponsiv">DETAILS</h3>
-                    Created at: &nbsp ${task["createdAt"]}. <br>
-                    Urgency &nbsp: &nbsp ${task["urgency"]}.
+                    <span>
+                    Created at: &nbsp ${task["createdAt"]}. <span>
+
                     <div class="descriptions">
                     Desc. &nbsp: &nbsp ${task["description"]}. <br>
                     </div>
