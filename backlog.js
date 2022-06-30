@@ -3,8 +3,11 @@ function addBacklog() {
     backlog.innerHTML = ``;
     for (let i = 0; i < tasks.length; i++) {
         let task=tasks[i]
+
+
+
         backlog.innerHTML += `
-        <div id="backlogContainer${i}" class="backlogContainer urgencyColorRed">
+        <div id="backlogContainer${i}" class="backlogContainer ">
                 <div class="assignedTo" class="category">
                     <img src=${task["selectetAvatar"]["picture"]} alt="" class="backlogAssignedToPicture" />
                     <div>
@@ -21,16 +24,25 @@ function addBacklog() {
             </div>
         </div>
         `;
-    }
+let bgColor = document.getElementById("backlogContainer" + i);
+let urgencyLevel = task['urgency'];
+
+if (urgencyLevel == "high") {
+  bgColor.classList.add('urgencyColorRed');
 }
-// if (condition) {
-//     if (tasks['selectedAvatar']['urgency'] == "High") {
-//         var(--urgency-color) = red;
-//     }
-// } else {
-//     (tasks['selectedAvatar']['urgency'] == "medium") {
-//         var(--urgency-color) = orange;
-// } else {
-//     (tasks['selectedAvatar']['urgency'] == "low") {
-//         var(--urgency-color) = blue;
-// }
+if (urgencyLevel == "medium") {
+  bgColor.classList.add('urgencyColorBlue');
+}
+if (urgencyLevel == "low") {
+  bgColor.classList.add('urgencyColorOrange');
+}
+
+}
+
+
+
+
+}
+
+
+
