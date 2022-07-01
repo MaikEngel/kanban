@@ -283,6 +283,8 @@ Task styles
 
 .fullscreenTaskHeadline {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .fullscreenTaskDescription {
@@ -300,6 +302,11 @@ Task styles
   position: absolute;
   right: 20px;
   top: 48px;
+}
+
+.subCont {
+  overflow: scroll;
+  height: 97%;
 }
 
 .hideScrollbar {
