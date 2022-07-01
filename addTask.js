@@ -25,6 +25,7 @@ let urgency;
 let counter;
 let id;
 let selectetAvatar;
+let position;
 
 async function addTask(e) {
 
@@ -33,6 +34,7 @@ async function addTask(e) {
   description = document.getElementById("description").value;
   catergory = document.getElementById("category").value;
   urgency = document.getElementById("urgency").value;
+  position = 'todo';
   let boardColumn = "to-do";
   id = counter;
   let time = new Date().getTime();
@@ -50,7 +52,8 @@ async function addTask(e) {
     createdAt,
     id,
     boardColumn,
-    selectetAvatar
+    selectetAvatar,
+    position
   });
   console.log(tasks);
   await backend.setItem("tasks", tasks);

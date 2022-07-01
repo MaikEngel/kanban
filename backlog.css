@@ -1,6 +1,4 @@
-:root {
-  --urgency-color: red;
-}
+
 
 .dNone {
   display: none;
@@ -69,24 +67,33 @@ table {
 
 .detailsContainer {
   width: 40%;
+
 }
 
 .backlogContainer {
-  height: 80px;
+  height: 120px;
   display: flex;
   background-color: #f4f3fb;
   border-radius: 16px;
   margin-bottom: 8px;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .urgencyColorRed {
-    border-left: solid var(--urgency-color) 12px;
+    border-left: solid red 10px;
+}
+.urgencyColorBlue {
+    border-left: solid blue 10px;
+}
+.urgencyColorOrange {
+    border-left: solid orange 10px;
 }
 
 .assignedTo {
   display: flex;
   align-items: center;
-  width: 35%;
+  width: 45%;
 }
 
 .category {
@@ -97,13 +104,15 @@ table {
 }
 
 .details {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-right: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+margin: 10px;
+    overflow-wrap: normal;
+
+    height: 100px;
+
 }
 
 .detailsHeadline {
@@ -162,6 +171,7 @@ table {
   .details p {
     margin: 0;
 
+
   }
 
   .detailsHeadline {
@@ -169,7 +179,7 @@ table {
   }
 
   .detailsContainer {
-    width: 90%;
+    width: 200px;
 
   }
 
@@ -215,3 +225,5 @@ table {
     height: 100px;
   }
 }
+
+

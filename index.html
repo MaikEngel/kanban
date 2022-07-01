@@ -1,31 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Board</title>
-    <link rel="stylesheet" href="board.css" />
-    <link rel="stylesheet" href="sidebar.css" />
-    <script defer src="sidebar.js"></script>
-    <script src="mini_backend.js"></script>
-    <script type="text/javascript">
-      setURL(
-        "https://www.maik-engel.developerakademie.net/smallest_backend_ever"
-      );
-    </script>
 
-    <script defer src="board.js"></script>
-  </head>
-  <body>
-    <main id="columns-container" class="columns-container small">
-      <div id="to-do" class="column first" draggable="true">
-        <div class="subCont"></div>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Board</title>
+  <link rel="stylesheet" href="board.css" />
+  <link rel="stylesheet" href="sidebar.css" />
+  <script defer src="sidebar.js"></script>
+  <script src="mini_backend.js"></script>
+  <script type="text/javascript">
+    setURL(
+      "https://www.maik-engel.developerakademie.net/smallest_backend_ever"
+    );
+  </script>
+  <script defer src="addTask.js"></script>
+  <script defer src="board.js"></script>
+</head>
+
+<body onload="initBoard()">
+  <main id="columns-container" class="small">
+    <div class="columns-container ">
+      <div id="to-do" class="column first" ondrop="dropTask('todo')" ondragover="allowDrop(event)">
+        <h2 class="fontColor">TO-DO</h2>
+        <div class="subCont" id="todos"></div>
       </div>
-      <div id="doing" class="column second"><div class="subCont"></div></div>
-      <div id="testing" class="column third"><div class="subCont"></div></div>
-      <div id="done" class="column fourth"><div class="subCont"></div></div>
-    </main>
-    <nav id="sidebar-cont"></nav>
-  </body>
+      <div id="doing" class="column second" ondrop="dropTask('inProgress')" ondragover="allowDrop(event)">
+        <h2 class="fontColor">IN PROGRESS</h2>
+        <div class="subCont" id="progress"></div>
+      </div>
+      <div id="testing" class="column third" ondrop="dropTask('testing')" ondragover="allowDrop(event)">
+        <h2 class="fontColor">TESTING</h2>
+        <div class="subCont" id="testings"></div>
+      </div>
+      <div id="done" class="column fourth" ondrop="dropTask('done')" ondragover="allowDrop(event)">
+        <h2 class="fontColor">DONE</h2>
+        <div class="subCont" id="dones"></div>
+      </div>
+    </div>
+
+    <div id="fullscreen" class="fullscreen dNone">
+      
+    </div>
+  </main>
+  <nav id="sidebar-cont"></nav>
+</body>
+
 </html>
