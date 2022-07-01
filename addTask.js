@@ -35,11 +35,9 @@ async function addTask(e) {
   catergory = document.getElementById("category").value;
   urgency = document.getElementById("urgency").value;
   position = 'todo';
-  let boardColumn = "to-do";
   id = counter;
   let time = new Date().getTime();
   let createdAt = new Date(time).toLocaleString();
-  console.log(createdAt);
   e.preventDefault();
 
   tasks.push({
@@ -51,7 +49,6 @@ async function addTask(e) {
     date,
     createdAt,
     id,
-    boardColumn,
     selectetAvatar,
     position
   });

@@ -89,8 +89,9 @@ function allowDrop(ev) {
   ev.preventDefault();
 }
 
-function dropTask(category) {
+async function dropTask(category) {
   tasks[currentDraggedTask]['position'] = category;
+  await backend.setItem("tasks", tasks);
   updateTasks();
 }
 
@@ -105,7 +106,6 @@ function openFullscreen(id) {
     <img class="fullscreenTaskPicture" src="${task['selectetAvatar']['picture']}">
       <div class="fullscreenTaskHeadline">
         <h2 class="fontColor">${task['title']}</h2>
-        <span>Due date: ${task['date']}</span>
       </div><br>
       <div style="display: flex; flex-direction: column;">
         <div >
@@ -122,6 +122,7 @@ function openFullscreen(id) {
       </div>
       <div style="display: flex; justify-content: space-between;">
         <span>Created at: ${task['createdAt']}</span>
+        <span>Due date: ${task['date']}</span>
       </div>
     </div>
   `;
