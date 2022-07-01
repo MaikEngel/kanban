@@ -175,10 +175,7 @@ Task styles
   padding: 8px;
   margin-bottom: 8px;
   box-sizing: border-box;
-<<<<<<< HEAD
   cursor: pointer;
-=======
->>>>>>> 48564793d032b5461624813673e904f4c0213b8e
 }
 
 .taskContainer div:last-child {
@@ -242,13 +239,26 @@ Task styles
 
 }
 
+.urgencyFullscreenColorRed {
+  border: solid 8px red;
+}
+
+
+.urgencyFullscreenColorOrange {
+  border: solid 8px orange;
+}
+
+
+.urgencyFullscreenColorBlue {
+  border: solid 8px blue;
+}
+
 .taskHeadline {
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
 }
 
-<<<<<<< HEAD
 .fullscreen {
   position: fixed;
   top: 0;
@@ -263,8 +273,9 @@ Task styles
 }
 
 .fullscreenTask {
+  position: relative;
   height: 380px;
-  width: 860px;
+  width: 660px;
   background-color: white;
   padding: 16px;
   border-radius: 16px;
@@ -282,12 +293,19 @@ Task styles
   overflow: scroll;
 }
 
+.fullscreenTaskPicture {
+  height: 100px;
+  width: 100px;
+  border-radius: 100%;
+  position: absolute;
+  right: 20px;
+  top: 48px;
+}
+
 .dNone {
   display: none;
 }
 
-=======
->>>>>>> 48564793d032b5461624813673e904f4c0213b8e
 @media (max-width: 1080px) {
   .column {
     flex-basis: 50%;
